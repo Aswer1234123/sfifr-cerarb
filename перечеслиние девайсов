@@ -1,0 +1,38 @@
+#include <iostream>
+
+enum class Device {
+    COMPUTER,
+    MOBILE,
+    TABLET,
+    SMART_WATCH,
+    SMART_TV
+};
+
+void printDeviceType(Device device) {
+    switch (device) {
+        case Device::COMPUTER:
+            std::cout << "Тип устройства: Компьютер" << std::endl;
+            break;
+        case Device::MOBILE:
+            std::cout << "Тип устройства: Мобильный телефон" << std::endl;
+            break;
+        case Device::TABLET:
+            std::cout << "Тип устройства: Планшет" << std::endl;
+            break;
+        case Device::SMART_WATCH:
+            std::cout << "Тип устройства: Умные часы" << std::endl;
+            break;
+        case Device::SMART_TV:
+            std::cout << "Тип устройства: Умный телевизор" << std::endl;
+            break;
+    }
+}
+
+int main() {
+
+    for (int i = static_cast<int>(Device::COMPUTER); i <= static_cast<int>(Device::SMART_TV); ++i) {
+        printDeviceType(static_cast<Device>(i));
+    }
+
+    return 0;
+}
