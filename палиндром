@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
+bool isPalindrome(const std::string& str) {
+    std::string cleaned;
+    
+    for (char ch : str) {
+        if (isalnum(ch)) {
+            cleaned += tolower(ch);
+        }
+    }
+
+    int len = cleaned.length();
+    for (int i = 0; i < len / 2; i++) {
+        if (cleaned[i] != cleaned[len - 1 - i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    std::string text;
+
+    std::cout << "Введите строку: ";
+    std::getline(std::cin, text);
+    
+    if (isPalindrome(text)) {
+        std::cout << "Строка является палиндромом." << std::endl;
+    } else {
+        std::cout << "Строка не является палиндромом." << std::endl;
+    }
+
+    return 0;
+}
